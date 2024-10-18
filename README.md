@@ -1,6 +1,6 @@
 # terraform-iac
-NSC Korea Infrastructure - Terraform IaC (Infrastructure As a Code)
-This is base infrastructure deployment of NSC Korea IT Cloud rooms
+Korea Infrastructure - Terraform IaC (Infrastructure As a Code)
+This is base infrastructure deployment of Korea IT Cloud rooms
 
 # Prerequisites
 1. Cloud AWS Account

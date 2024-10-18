@@ -5,7 +5,7 @@ on:
     branches: [ deploy/* ]
 
 
-# MODIFY THIS VARIABLE - 여기에 있는 변수를 고치세요 !!!! 
+# MODIFY THIS VARIABLE - 여기에 있는 변수를 고치세요 !!!!
 env :
   prefix :              #
   product :             #{product name}
