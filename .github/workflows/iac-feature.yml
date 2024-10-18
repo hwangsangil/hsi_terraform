@@ -7,14 +7,14 @@ on:
 
 # MODIFY THIS VARIABLE - 여기에 있는 변수를 고치세요 !!!!
 env :
-  prefix : nsckr  #{default : nsckr}
-  product : sandbox      #{product name}
-  env : dev          #{environment is only allowed as 'prod' or 'dev'}
+  prefix :   
+  product :       #{product name}
+  env :           #{environment is only allowed as 'prod' or 'dev'}
 # MODIFY THIS VARIABLE - 여기에 있는 변수를 고치세요 !!!!
 
 defaults:
   run:
-    working-directory: nsckr-terraform-iac
+    working-directory: terraform-iac
 
 permissions:
   id-token: write
@@ -46,7 +46,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume : arn:aws:iam::425174267976:role/nsckr-sandbox-dev-aws-github-role
+          role-to-assume : 
           # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
@@ -99,7 +99,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume : arn:aws:iam::425174267976:role/nsckr-sandbox-dev-aws-github-role
+          role-to-assume : 
           # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2

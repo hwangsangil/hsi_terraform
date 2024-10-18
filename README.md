@@ -1,22 +1,22 @@
-# nsckr-terraform-iac
+# terraform-iac
 NSC Korea Infrastructure - Terraform IaC (Infrastructure As a Code)
 This is base infrastructure deployment of NSC Korea IT Cloud rooms
 
 # Prerequisites
-1. BMW Cloud AWS Account
-1. Create VPC in BMW Cloud console
+1. Cloud AWS Account
+1. Create VPC in Cloud console
 1. AWS Credential for GitHub Actions (2 options)
-    1. Create IAM Service account in BMW Cloud console (admin role can be used temporary)
+    1. Create IAM Service account in Cloud console (admin role can be used temporary)
     1. Create IAM Role with OIDC identity provider
 
 # Created resource list
-1. ECS VPC end-point - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/ecs_vpc_endpoint/MODULE.md
-1. ELB structure to expose service from internet - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/elb/MODULE.md
-1. Create IAM Role for GitHub Actions - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/oidc/MODULE.md
-1. Create Resource Group for automated patch - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/resource_group/MODULE.md
-1. SSM enablement - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/ssm/MODULE.md
-1. Create IAM Role for EC2 - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/ssm_role/MODULE.md
-1. Create teams alert - https://atc-github.azure.cloud.bmw/nsckrit/nsckr-terraform-iac/blob/515a5c1d7ea0dec0a20defd29046965122bba3d4/nsckr-terraform-iac/module/teams_alert/MODULE.md
+1. ECS VPC end-point
+1. ELB structure to expose service from internet
+1. Create IAM Role for GitHub Actions
+1. Create Resource Group for automated patch
+1. SSM enablement
+1. Create IAM Role for EC2MODULE.md
+1. Create teams alert
 
 # How to deploy within GitHub Actions
 1. Create new branch with 'deploy/{friendly name}' from 'main' branch
@@ -52,7 +52,3 @@ This is base infrastructure deployment of NSC Korea IT Cloud rooms
     ```shell
     terraform destroy
     ```
-
-# Guides and Best Practices
-1. Agile Working Model - AWM: [Guideline - Cloud Computing](https://atc.bmwgroup.net/confluence/x/QN0_Fg)
-2. Development Portal: [Cloud IaC Guidelines](https://developer.bmw.com/docs/cloud-guides-and-best-practices/20_gettingstarted/guidelines/)

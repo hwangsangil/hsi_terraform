@@ -6,7 +6,7 @@ Key : Value = "patch : yes"
 # Created Resource list
 |Num|Category|Service Name|
 |:---:|:---:|:---:|
-|1  |Resource Group   |nsckr-patch-rg |
+|1  |Resource Group   |patch-rg |
 
 EC2 Instance 태그 중 patch:yes 태그가 들어가있는 리소스들만 그룹에 자동 추가
 

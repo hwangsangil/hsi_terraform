@@ -22,7 +22,7 @@ from public vpc to private vpc
 # EX) {prefix}-{prouct}-{env}-ssm-vpce-sg
 
 profile = ""   # aws credential에서 설정한 profile 이름으로 입력
-prefix=""      # 이름 규칙에 따라 첫 접두사 위치에 올 이름 설정 ex) nsckr
+prefix=""      # 이름 규칙에 따라 첫 접두사 위치에 올 이름 설정
 product=""     # product name 또는 naming rule 에 따른 두번째 위치 이름 설정 ex) vts
 env=""         # dev or prod 값 입력. 또는 naming rule 3번째 위치 값 입력
 ```

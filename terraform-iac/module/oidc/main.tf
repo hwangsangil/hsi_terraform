@@ -21,13 +21,13 @@ locals {
 }
 
 resource "aws_iam_openid_connect_provider" "atc-github" {
-  url = "https://atc-github.azure.cloud.bmw/_services/token"
+  url = ""
 
   client_id_list = [
     "sts.amazonaws.com",
   ]
 
-  thumbprint_list = ["0bbfab97059595e8d1ec48e89eb8657c0e5aae71", "d69b561148f01c77c54578c10926df5b856976ad", "FCB12F98AFE329464C2316A8BC0716BCF4BCC5B6"]
+  thumbprint_list = [""]
 }
 
 resource "aws_iam_role" "aws-gh-oidc-role" {
@@ -50,19 +50,19 @@ data "aws_iam_policy_document" "trustrelation" {
 
     condition {
       test     = "StringEquals"
-      variable = "atc-github.azure.cloud.bmw/_services/token:aud"
+      variable = ""
       values   = ["sts.amazonaws.com"]
     }
 
     condition {
       test     = "StringLike"
-      variable = "atc-github.azure.cloud.bmw/_services/token:sub"
-      values   = ["repo:nsckrit/*:*"]
+      variable = ""
+      values   = ["repo:it/*:*"]
     }
 
     principals {
       type        = "Federated"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/atc-github.azure.cloud.bmw/_services/token"]
+      identifiers = [""]
     }
   }
 }

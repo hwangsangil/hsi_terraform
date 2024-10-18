@@ -18,7 +18,7 @@ locals {
 }
 
 resource "aws_resourcegroups_group" "patch_resource_group" {
-  name        = "nsckr-patch-rg"
+  name        = "patch-rg"
   description = "Resource group for patch targets"
 
   resource_query {

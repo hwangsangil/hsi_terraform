@@ -7,7 +7,7 @@ terraform {
   }
   required_version = ">= 1.2.0"
   backend "s3" {
-    bucket         = "nsckr-terraform-tfbackend"
+    bucket         = "terraform-tfbackend"
     region         = "ap-northeast-2"
     encrypt        = "true"
     dynamodb_table = "tfbackend-dynamodb"
