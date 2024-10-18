@@ -1,0 +1,19 @@
+{
+    "@context": "https://schema.org/extensions",
+    "@type": "MessageCard",
+    "themeColor": "FF0000",
+    "title": "Message from AWS",
+    "text": "This is message from aws",
+    "summary": "Summary is this",
+    "sections": [
+        {
+            "facts": 
+            [
+                {
+                    "name": "Time",
+                    "value": "time"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+name: Generate terraform-docs
+on:
+  # Triggers the workflow on pull request open on given branch..
+  # 여기 참조해서 tflint 추가해주세요
+  # https://atc.bmwgroup.net/confluence/display/KRITMNGT/Pre-commit+for+Terraform
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+  # push :
+  #   branches:
+  #     - hotfix/fmt
+  #     - feature/teams_alerts
+defaults:
+  run:
+#     shell: bash
+    working-directory: nsckr-terraform-iac
+
+jobs:
+  docs:
+    runs-on: ${{ vars.RUNNER_LABEL }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+    - uses: actions/setup-node@v4
+      with:
+        node-version: latest
+    - uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.6.1
+    - uses: actions/setup-python@v3
+    - uses: terraform-linters/setup-tflint@v3
+      with:
+      #github.com 에서 개인 계정(sangil.hwang)의 토큰 why? api limit을 없애기 위해.
+        github_token: ${{ secrets.SHARED_HSI_GITHUB_TOKEN }}
+
+    - name: Terraform Init
+      id: init
+      run: terraform init -backend-config="access_key=${{ secrets.SHARED_AWS_ACESS_KEY_ID }}" -backend-config="secret_key=${{ secrets.SHARED_AWS_SECRET_ACESS_KEY }}" -backend-config="key=state/${{ github.ref_name }}/terraform.tfstate" -upgrade
+    
+    - name : terraform fmt
+      run : | 
+        pwd
+        terraform fmt -recursive    
+
+    - name: run pre-commit
+      uses: pre-commit/action@v3.0.0
+
+    - name: Render terraform docs and push changes back to PR
+      uses: terraform-docs/gh-actions@main
+      with:
+        working-dir: nsckr-terraform-iac,nsckr-terraform-iac/module/*
+        output-file: MODULE.md
+        output-method: inject
+        git-push: "true"

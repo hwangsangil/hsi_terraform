@@ -1,0 +1,10 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.83.2 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_tflint
+      # args: 
+      #   - --args=--module
+      #   - --args=--enable-rule=terraform_documented_variables
+      #   - --args=--ignore-module=terraform-aws-modules/security-group/aws
